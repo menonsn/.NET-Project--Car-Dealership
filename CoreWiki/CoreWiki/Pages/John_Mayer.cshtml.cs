@@ -5,12 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace WebApplication1.Pages
+namespace CoreWiki.Pages
 {
-    public class PrivacyModel : PageModel
+    public class John_MayerModel : PageModel
     {
         public void OnGet()
         {
+
         }
     }
 }
