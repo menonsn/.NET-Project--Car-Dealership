@@ -1,0 +1,71 @@
+﻿@page
+
+@model CoreCruds.Pages.CountryProfileModel
+
+@{
+
+    ViewData["Title"] = "CountryProfile";
+
+}
+
+
+
+<h1>Country Profile</h1>
+
+<hr />
+
+
+<table class="table table-bordered table-striped">
+
+    <thead>
+
+        <tr>
+
+            <td>Destination Name</td>
+
+            <td>Altitude</td>
+
+            <td>Cost Of Trip</td>
+
+            <td>Equatorial Weather</td>
+            <td>Main Attraction</td>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach (var destination in Model.country.Destinations)
+
+        {
+
+        <tr>
+
+            <td>@destination.DestinationName</td>
+
+            <td>@destination.Altitude</td>
+
+            <td>@destination.CostOfTrip</td>
+
+            <td>
+
+                @if (destination.EquatorialWeather)
+
+                {
+
+                    <span>Equatorial</span>
+
+                }
+
+              
+
+            </td>
+            <td>  @destination.MainAttraction</td>
+
+        </tr>
+
+        }
+
+    </tbody>
+</table>

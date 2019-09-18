@@ -1,0 +1,75 @@
+﻿@page
+@model CoreCruds.Pages.QuickGlanceModel
+@{
+    ViewData["Title"] = "QuickGlance";
+}
+
+<h1>Quick Glance</h1>
+
+<hr />
+
+<table class="table table-bordered table-striped">
+
+    <thead>
+        <tr>
+
+            <td colspan="2"><strong>Best places with Equatorial Weather ordered by Cost of Trip!</strong></td>
+
+        </tr>
+
+        <tr>
+
+
+            <td>Destination Name</td>
+
+            <td>Altitude</td>
+
+            <td>Cost Of Trip</td>
+            <td>Main Attraction</td>
+
+            <td>Equatorial Weather</td>
+            <td>Date of Trip</td>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach (var collectible in Model.destinations.OrderBy(x => x.CostOfTrip).ToList())
+
+        {
+
+                <tr>
+
+
+
+                    <td><strong>@collectible.DestinationName</strong>
+                    <td>@collectible.Altitude</td>
+                    <td>@collectible.CostOfTrip</td>
+                    <td>@collectible.MainAttraction</td>
+                    <td>
+                        @if (collectible.EquatorialWeather)
+
+                        {
+
+                            <span>Visit Now!</span>
+
+                        }
+
+                    </td>
+                    <td>@collectible.DateOfVisit</td>
+
+
+                </tr>
+
+            }
+
+        </tbody>
+
+
+
+
+
+</table>
+

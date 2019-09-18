@@ -8,6 +8,7 @@ namespace CoreCruds.Models
     public class Country
     {
         public int ID { get; set; }
+
         public string CountryName { get; set; }
         public ICollection<Destinations> Destinations { get; set; }
 
