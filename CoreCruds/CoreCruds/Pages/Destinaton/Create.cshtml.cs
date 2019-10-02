@@ -20,7 +20,7 @@ namespace CoreCruds.Pages.Destinaton
 
         public IActionResult OnGet()
         {
-        ViewData["LocationId"] = new SelectList(_context.Country, "ID", "ID");
+        ViewData["LocationId"] = new SelectList(_context.Country, "ID", "CountryName");
             return Page();
         }
 

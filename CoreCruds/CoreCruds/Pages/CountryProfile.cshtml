@@ -8,64 +8,60 @@
 
 }
 
-
-
 <h1>Country Profile</h1>
-
 <hr />
 
-
 <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <thead>
 
-    <thead>
+            <tr>
 
-        <tr>
+                <td>Destination Name</td>
 
-            <td>Destination Name</td>
+                <td>Altitude</td>
 
-            <td>Altitude</td>
+                <td>Cost Of Trip</td>
 
-            <td>Cost Of Trip</td>
+                <td>Equatorial Weather</td>
+                <td>Main Attraction</td>
 
-            <td>Equatorial Weather</td>
-            <td>Main Attraction</td>
+            </tr>
 
-        </tr>
+        </thead>
 
-    </thead>
+        <tbody>
 
-    <tbody>
+            @foreach (var destination in Model.country.Destinations)
 
-        @foreach (var destination in Model.country.Destinations)
+            {
 
-        {
+                <tr>
 
-        <tr>
+                    <td>@destination.DestinationName</td>
 
-            <td>@destination.DestinationName</td>
+                    <td>@destination.Altitude</td>
 
-            <td>@destination.Altitude</td>
+                    <td>@destination.CostOfTrip</td>
 
-            <td>@destination.CostOfTrip</td>
+                    <td>
 
-            <td>
+                        @if (destination.EquatorialWeather)
 
-                @if (destination.EquatorialWeather)
+                        {
 
-                {
+                            <span>Equatorial</span>
 
-                    <span>Equatorial</span>
+                        }
 
-                }
 
-              
 
-            </td>
-            <td>  @destination.MainAttraction</td>
+                    </td>
+                    <td>  @destination.MainAttraction</td>
 
-        </tr>
+                </tr>
 
-        }
+            }
 
-    </tbody>
-</table>
+        </tbody>
+    </table>

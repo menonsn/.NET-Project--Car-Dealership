@@ -8,7 +8,8 @@
 
 <hr />
 
-<table class="table table-bordered table-striped">
+<table class="table table-dark table-bordered table-striped">
+    <thead class="thead-dark">
 
     <thead>
         <tr>
@@ -40,32 +41,32 @@
 
         {
 
-                <tr>
+            <tr>
 
 
 
-                    <td><strong>@collectible.DestinationName</strong>
-                    <td>@collectible.Altitude</td>
-                    <td>@collectible.CostOfTrip</td>
-                    <td>@collectible.MainAttraction</td>
-                    <td>
-                        @if (collectible.EquatorialWeather)
+                <td><strong>@collectible.DestinationName</strong>
+                <td>@collectible.Altitude</td>
+                <td>@collectible.CostOfTrip</td>
+                <td>@collectible.MainAttraction</td>
+                <td>
+                    @if (collectible.EquatorialWeather)
 
-                        {
+                    {
 
-                            <span>Visit Now!</span>
+                        <span>Visit Now!</span>
 
-                        }
+                    }
 
-                    </td>
-                    <td>@collectible.DateOfVisit</td>
+                </td>
+                <td>@collectible.DateOfVisit</td>
 
 
-                </tr>
+            </tr>
 
-            }
+        }
 
-        </tbody>
+    </tbody>
 
 
 
