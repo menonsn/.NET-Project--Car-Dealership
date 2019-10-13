@@ -1,0 +1,60 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<head>
+    <style>
+        body {
+            background-image: url(https://cars.mclaren.com/content/dam/mclaren-automotive/models/mclaren-senna/senna/overview/optimised/Senna-Hero1920x1080.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-bottom: auto;
+            border: 0;
+            max-width: 100%;
+            height: auto;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<div class="text-center">
+    <br />
+    <br />
+    <br />
+
+
+
+    <div class="row">
+        <h1 style="color:whitesmoke;margin-top: 200px;" class="display-4"><strong>RNS Car Dealership</strong></h1>
+        <div class="col-md-6" style="margin-top: 300px;background: aliceblue;right:40%;">
+
+            <table class="table table-bordered table-striped">
+                <thead class="bg-light text-dark">
+                    <tr>
+                        <th colspan="2"> Statistics</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Total number of Cars available</td>
+                        <td class="text-right">@Model.NoOfCarsAvailable</td>
+                    </tr>
+                    <tr><DirectedGraph xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+                        <td>Total number of Cars sold</td>
+                        <td class="text-right">@Model.NoofCarsSold</td>
+                    </tr>
+                    <tr>
+                        <td>Total Number Of Customers</td>
+                        <td class="text-right">@Model.TotalNoOfCustomers</td>
+                    </tr>
+                    <tr>
+                        <td>Total number of Makes/Models</td>
+                        <td class="text-right">@Model.NoofModels</td>
+                    </tr>
+            </table>
+        </div>
+    </div>
+    <hr />
+</div>

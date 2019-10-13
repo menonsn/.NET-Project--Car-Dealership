@@ -1,0 +1,45 @@
+﻿@page
+@model CarDealership.Pages.Makes.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Make</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Make.ID" />
+            <div class="form-group">
+                <label asp-for="Make.Name" class="control-label"></label>
+                <input asp-for="Make.Name" class="form-control" />
+                <span asp-validation-for="Make.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Make.MakeTypeID" class="control-label"></label>
+                <select asp-for="Make.MakeTypeID" class="form-control" asp-items="ViewBag.MakeTypeID"></select>
+                <span asp-validation-for="Make.MakeTypeID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Make.ManufacturerID" class="control-label"></label>
+                <select asp-for="Make.ManufacturerID" class="form-control" asp-items="ViewBag.ManufacturerID"></select>
+                <span asp-validation-for="Make.ManufacturerID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,64 @@
+﻿@page
+@model CarDealership.Pages.PurchaseCarModel
+@{
+    ViewData["Title"] = "Purchase a Car";
+}
+
+<h2>Purchase a Car</h2>
+
+<hr/>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <form method="post" style="margin-top: 50px;">
+
+            <div class="form-group">
+                <label class="control-label">Vehicle Identification Number (VIN) </label>
+                <div>
+                    <p class="form-control-static">@Model.Car.VIN</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Car Id </label>
+                <div>
+                    <p class="form-control-static">@Model.Car.ID</p>
+                </div>
+            </div>
+
+            <input type="hidden" asp-for="CarPurchaseForm.CarId" />
+            <input type="hidden" asp-for="CarPurchaseForm.VIN" />
+
+            @if (Model.Car.IsAvailable)
+            {
+
+                <div class="form-group">
+                    <label asp-for="CarPurchaseForm.OwnerId" class="control-label"></label>
+                    <select asp-for="CarPurchaseForm.OwnerId" class="form-control" asp-items="ViewBag.OwnerId"></select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="CarPurchaseForm.Sale_Date" class="control-label"></label>
+                    <input asp-for="CarPurchaseForm.Sale_Date" class="form-control" />
+                    <span asp-validation-for="CarPurchaseForm.Sale_Date" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Purchase Car" class="btn btn-danger" />
+                </div>
+            }
+            else
+            {
+                <div class="form-group">
+                    <label class="control-label">Sale Date</label>
+                </div>
+                <div>
+                    <p class="form-control-static">@Model.Car.Sale_Date.Value.ToString("MM-dd-yyyy")</p>
+                </div>
+                <div class="alert alert-warning">
+                    <p>This car is sold</p>
+                </div>
+            }
+        </form>
+    </div>
+</div>
+

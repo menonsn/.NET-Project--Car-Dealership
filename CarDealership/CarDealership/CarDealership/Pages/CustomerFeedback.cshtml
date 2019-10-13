@@ -1,0 +1,58 @@
+﻿@page
+@model CarDealership.Pages.CustomerFeedbackModel
+@{
+    ViewData["Title"] = "Customer Feedback";
+}
+
+<h1><strong>Customer Feedback</strong></h1>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <form method="post" style="margin-top: 50px;">
+
+            <div class="form-group">
+                <label class="control-label">Branch Name </label>
+                <div>
+                    <p class="form-control-static">@Model.Branch.Branch_Name</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Branch Id </label>
+                <div>
+                    <p class="form-control-static">@Model.Branch.ID</p>
+                </div>
+            </div>
+
+            <input type="hidden" asp-for="FeedbackForm.BranchId" />
+            <input type="hidden" asp-for="FeedbackForm.Branch_Name" />
+
+            @if (Model.Branch.IsOperational)
+            {
+                <div class="form-group">
+                    <label asp-for="FeedbackForm.OwnerId" class="control-label"></label>
+                    <select asp-for="FeedbackForm.OwnerId" class="form-control" asp-items="ViewBag.OwnerId"></select>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="FeedbackForm.Service_Rating" class="control-label"></label>
+                    <input asp-for="FeedbackForm.Service_Rating" class="form-control" />
+                    <span asp-validation-for="FeedbackForm.Service_Rating" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Submit Feedback" class="btn btn-danger" />
+                </div>
+            }
+            else
+            {
+                <div class="form-group">
+                    <label class="control-label"> </label>
+                </div>
+                <div class="alert alert-warning">
+                    <p>This Branch is not Operational</p>
+                </div>
+            }
+        </form>
+    </div>
+</div>

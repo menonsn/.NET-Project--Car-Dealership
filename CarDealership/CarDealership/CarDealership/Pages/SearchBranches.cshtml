@@ -1,0 +1,85 @@
+﻿@page
+@model CarDealership.Pages.SearchBranchesModel
+@{
+    ViewData["Title"] = "Search for Branches";
+}
+
+<h1><strong>Search for Branches</strong></h1>
+
+
+<form action="" method="POST" style="margin-top: 50px;">
+    <div class="form-group">
+        <label class="control-label" for="search">City Name</label>
+        <input type="text" class="form-control" name="search" id="search" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Search Branches" class="btn btn-default" />
+    </div>
+</form>
+
+
+@if (Model.SearchCompleted)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>City</th>
+                <th>Zip Code</th>
+                <th>Operational?</th>
+                <th>Average Customer Rating</th>
+                <th>Number of Reviews</th>
+                <th>Trusted</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.SearchResults.Count > 0)
+            {
+                @foreach (var Branch in Model.SearchResults.OrderByDescending(x => x.Average_Rating))
+                {
+                    <tr>
+                        <td>@Branch.ID</td>
+                        <td>@Branch.Branch_City</td>
+                        <td>@Branch.Zip_Code</td>
+                        <td>
+                            @if (Branch.IsOperational)
+                            {
+                                <text>Open</text>
+                            }
+                            else
+                            {
+                                <text>Closed</text>
+                            }
+                        </td>
+                        <td>@Branch.Average_Rating</td>
+                        <td>@Branch.Review_Count</td>
+                        <td>@Branch.Trusted</td>
+                        <td>
+                            <a href="/CarsinBranch?id=@Branch.ID"> View List </a>
+                        </td>
+                        <td>
+                            <a href="/CustomerFeedback?id=@Branch.ID"> Give Feedback </a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr class="danger">
+                    <td colspan="4" class="text-center">
+                        No branches found for term "@Model.Search"
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-info">
+        <p>
+            Enter the search terms into the box and click <strong>Search Branches</strong>
+        </p>
+    </div>
+}

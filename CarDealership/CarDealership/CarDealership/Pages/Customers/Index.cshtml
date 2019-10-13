@@ -1,0 +1,48 @@
+﻿@page
+@model CarDealership.Pages.Customers.IndexModel
+
+@{
+    ViewData["Title"] = "Customer List";
+}
+
+    <h1 style="color:black;">Customer List</h1>
+
+<p>
+    <a asp-page="Create">Create a New Customer</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].Customer_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].Contact_Number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].Email_ID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Customer) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contact_Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email_ID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

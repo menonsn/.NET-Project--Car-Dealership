@@ -1,0 +1,38 @@
+﻿@page
+@model CarDealership.Pages.ManufacturerDetailsModel
+@{
+    ViewData["Title"] = "Manufacturer Details";
+}
+
+<h1><strong>Manufacturer Details</strong></h1>
+<hr />
+
+@foreach (var Manufacturer in Model.Manufacturers)
+{
+    
+  
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr  class="text-center"> <td colspan="2"> <h5> @Manufacturer.Name </h5> </td> </tr>
+            <tr>
+                <td class="text-center">Make Name</td>
+                <td class="text-center">Type</td>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Make in Manufacturer.Makes)
+            {
+                <tr>
+                    <td class="text-center">@Make.Name</td>
+                    <td class="text-center">@Make.MakeType.Make_Type</td>
+                </tr>
+            } 
+        </tbody>
+    </table>
+}
+
+
+
+
+

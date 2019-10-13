@@ -1,0 +1,41 @@
+﻿@page
+@model CarDealership.Pages.Shared.SoldToCustomerModel
+@{
+    ViewData["Title"] = "Customer Profile";
+}
+
+<h1> <strong>Customer Profile</strong> </h1>
+
+<div class="row">
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">Customer Name</th>
+                <th scope="col">Contact Number</th>
+                <th scope="col">Email ID</th>
+                <th scope="col">VIN</th>
+                <th scope="col">On-Road Price</th>
+                <th scope="col">Purchase Date</th>
+            </tr>
+        </thead>
+        @foreach (var Customer in Model.Customers)
+        {
+            @foreach (var Car in Customer.Cars)
+            {
+
+                <tbody>
+                    <tr>
+                        <td>@Customer.Customer_Name</td>
+                        <td>@Customer.Contact_Number</td>
+                        <td>@Customer.Email_ID</td>
+                        <td>@Car.VIN</td>
+                        <td>@Car.Onroad_price</td>
+                        <td>@Car.Sale_Date</td>
+
+                    </tr>
+                </tbody>
+                }
+            }
+    </table>
+</div>
+

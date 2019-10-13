@@ -1,0 +1,65 @@
+﻿@page
+@model CarDealership.Pages.AdminModel
+@{
+    ViewData["Title"] = "Admin";
+}
+
+<h1><strong>Admin</strong></h1>
+<br />
+<div class="row">
+
+    <div class="col-md-6">
+        <img src="http://www.lainglegal.com.au/wp-content/uploads/sites/2156/2017/03/estate-administration-law.jpg" />
+    </div>
+</div>
+<br />
+@*<div class="row">
+        <div class="col-md-6">
+            <a href="../Cars/index">Click here to Edit/Update details of cars</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <a href="../Customers/index">Click here to Edit/Update details  of  Customers</a>
+        </div>
+    </div>*@
+
+<table class="table" border="1">
+    <thead>
+        <tr>
+            <th scope="col">Description</th>
+            <th scope="col">Link</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">Maintain Car Inventory</th>
+            <td><a href="../Cars/index">Link 1</a></td>
+
+        </tr>
+        <tr>
+            <th scope="row">Maintain Customer Registry</th>
+            <td><a href="../Customers/index">Link 2</a></td>
+
+        </tr>
+        <tr>
+            <th scope="row">Add/Update details of Makes/Models</th>
+            <td><a href="../Makes/index">Link 3</a></td>
+
+        </tr>
+        <tr>
+            <th scope="row">Add/Update details of Make Types</th>
+            <td><a href="../MakeTypes/index">Link 4</a></td>
+
+        </tr>
+        <tr>
+            <th scope="row">Manage Manufacturers</th>
+            <td><a href="../Manufacturers/index">Link 5</a></td>
+
+        </tr>
+        <tr>
+            <th scope="row">Manage Branches</th>
+            <td><a href="../Branches/index">Link 6</a></td>
+
+        </tr>
+</table>

@@ -1,0 +1,49 @@
+﻿@page
+@model CarDealership.Pages.CarsinBranchModel
+@{
+    ViewData["Title"] = "Cars Available by Branch";
+}
+
+<h2>Cars Available by Branch</h2>
+
+<hr />
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <td>Branch Name</td>
+            <td>Manufacturer Name</td>
+            <td>Make Name</td>
+            <td>VIN</td>
+            <td>Manufactured Year</td>
+            <td>Ex-showroom price</td>
+            <td>Onroad Price</td>
+            <td> </td>
+
+        </tr>
+    </thead>
+    <tbody>
+       @foreach (var Car in Model.Branch.Cars)
+       {
+           if (@Car.IsAvailable)
+           {
+        <tr>
+            <td>@Car.Branch.Branch_Name</td>
+            <td>@Car.Make.Manufacturer.Name</td>
+            <td>@Car.Make.Name</td>
+            <td>@Car.VIN</td>
+            <td>@Car.Manufactured_Year</td>
+            <td>@Car.Showroom_Price</td>
+            <td>@Car.Onroad_price</td>
+            <td>
+                <a href="/PurchaseCar?id=@Car.ID"> Buy </a>
+            </td>
+
+
+        </tr>
+           }
+       }
+    </tbody>
+
+
+</table>
+
